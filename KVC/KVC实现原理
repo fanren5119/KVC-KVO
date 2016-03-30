@@ -1,8 +1,68 @@
-！！1.简介
+1.简介
   KVC全称key-value coding（键值编码）
   他提供了一种在运行时而非编译时动态访问对象属性与成员变量的方式；
   也就是说，我们可以使用字符串的内容作为属性名称或者成员变量名称进行访问。
   
-！！2.KVC如何访问属性值
+2.KVC如何访问属性值
   KVC在某种程度上代替了访问器，为了设置或返回对象属性的值，KVC按顺序使用了如下技术
+  ①检查是否存在-<key>、或者-is<key>(只对BOOL值)的访问器方法，如果有，就用这些方法返回值；
+   检查是否存在-set<key>方法，如果有，就用他来设置值
+  ②如果上述方法不可用，就检查-_<key>、-_is<key>、-_set<key>方法；
+  ③如果没有找到访问器方法，就直接找实例变量，实例变量可以名为<key>或_<key>;
+  ④如果仍然没有找到，则调用valueForUndefinedKey:和setValue:forUndefinedKey:方法，这些方法默认会抛出异常，我们可以重写他们。
   
+3.KVC访问属性的方法
+  - (id)valueForKey:(NSString *)key;
+  - (void)setValue:(id)value forKey:(NSString *)key;
+  - (id)valueForKeyPath:(NSString *)keyPath;
+  - (void)setValue:(id)value forKeyPath:(NSString *)keyPath;
+  其中keyPath是一个被点语法隔开的用于访问对象的指定属性的字符串序列；
+  例如：keyPath为address.street，将会访问消息接收对象所包含的address属性中的street属性。
+  
+4.一对多关系中的集合访问器方法
+  我们平时使用的属性都是一对一关系，比如Person类中的name属性。但也有一对多的关系，比如Person类中有一个属性friendsName，这是个集合类型；
+  当操作一对多的属性中的内容时，我们有两种选择；
+  ①间接操作
+    我们先通过KVC取出集合属性，然后通过集合属性操作集合中的元素；
+  ②直接操作
+    我们可以实现某些方法，通过这些方法来操作集合中的元素，而苹果为我们提供了这些方法的模板
+    -countOf<key>
+    -objectIn<key>AtIndex:
+    -<key>AtIndexs:
+    -get<Key>:range:
+    -inserObject:in<key>AtIndex:
+    -insert<key>:atIndexs:
+    -removeObjectIn<Key>atIndex:
+    -remove<key>AtIndexs:
+    -replaceObjectIn<key>AtIndex:withObject:
+    -replace<key>AtIndexs:with<key>:
+
+5.键值验证
+  KVC提供了验证key是否有value可用的方法:
+  - (BOOL)validate<key>:error
+  但是此方法不会自动调用，需要我们手动调用
+  
+6.KVC对数值和结构体类型属性的支持
+  KVC会把数值和结构体类型的属性，打包或解包成NSNumber和NSValue的类型的对象，以达到适配的目的。
+  
+7.集合运算符
+  集合运算符是一个特殊的keyPath，
+  ①简单运算符
+    @avg, @count, @max, @min, @sum
+  ②对象运算符
+    @distinctUnionOfObjects
+    @unionOfObjects
+    二者返回的都是一个数组
+  ③Array和set操作符
+    @distinctUnionOfArrays
+    @unionOfArrays
+    @distinctOfUnionOfSets
+  例子：一个集合类对象transactions，存储了Transaction类的对象，该类中有三个属性payee，amount，date
+  ①求transactions中所有对象的amount的平均值
+    NSNumber *amountAverage = [transactions valueForKeyPath: @"@avg.amount"];
+  ②得到transactions中所有对象中去除重复后的payee
+    NSArray *payees = [transactions valueForKeyPath: @"@distinctUnionOfObjects.payee"];
+  ③得到transactions中所有对象中的所有payee，
+    NSArray *payees = [transactions valueForKeyPath: @"unionOfObjects.payee"];
+  ④有两个集合transactions和moreTransactions，都包含Transaction对象，而arrayOfTransactionArray包含这两个集合，
+    NSArray *payees = [arrayOfTransactionArray valueForKeyPath: @"@distinctUnionOfArrays.payee"];
