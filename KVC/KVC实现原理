@@ -57,12 +57,13 @@
     @distinctUnionOfArrays
     @unionOfArrays
     @distinctOfUnionOfSets
-  例子：一个集合类对象transactions，存储了Transaction类的对象，该类中有三个属性payee，amount，date
-  ①求transactions中所有对象的amount的平均值
-    NSNumber *amountAverage = [transactions valueForKeyPath: @"@avg.amount"];
-  ②得到transactions中所有对象中去除重复后的payee
-    NSArray *payees = [transactions valueForKeyPath: @"@distinctUnionOfObjects.payee"];
-  ③得到transactions中所有对象中的所有payee，
-    NSArray *payees = [transactions valueForKeyPath: @"unionOfObjects.payee"];
-  ④有两个集合transactions和moreTransactions，都包含Transaction对象，而arrayOfTransactionArray包含这两个集合，
-    NSArray *payees = [arrayOfTransactionArray valueForKeyPath: @"@distinctUnionOfArrays.payee"];
+  例子：一个集合类对象peopleArray，存储了People类的对象，该类中有三个属性firstName, lastName, age
+  ①求peopleArray中所有对象的age的平均值
+    NSNumber *average = [peopleArray valueForKeyPath: @"@avg.age"];
+  ②得到peopleArray中所有对象中去除重复后的lastName
+    NSArray *dUnionLastNames = [peopleArray valueForKeyPath:@"@distinctUnionOfObjects.lastName"];
+  ③得到peopleArray中所有对象中的所有lastName
+    NSArray *unionLastNames = [peopleArray valueForKeyPath:@"@unionOfObjects.lastName"];
+  ④有两个集合peopleArray1和peopleArray2，都包含People对象，而arrayOfArray包含这两个集合，
+    NSArray *dUnionLastName = [arrayOfArray valueForKeyPath:@"@distinctUnionOfArrays.lastName"];
+    NSArray *unionLastName = [arrayOfArray valueForKeyPath:@"@unionOfArrays.lastName"];
