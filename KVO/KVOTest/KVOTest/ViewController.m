@@ -25,14 +25,17 @@
     
     self.people = [[People alloc] initWithName:@"wanglei" age:24];
     [self.people addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    [self.people addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
 }
 - (IBAction)respondsToButton:(id)sender
 {
-    self.people.age += 5;
+    //KVO自动通知
+    self.people.age += 1;
 }
 
 - (IBAction)respondsToNameButton:(id)sender
 {
+    //KVO手动通知
     [self.people setUserName:@"wanglei"];
 }
 
@@ -45,7 +48,6 @@
     
     if ([keyPath isEqualToString:@"name"]) {
         self.nameLabel.text = [NSString stringWithFormat:@"%@", self.people.name];
-        NSLog(@"=========");
     }
 }
 

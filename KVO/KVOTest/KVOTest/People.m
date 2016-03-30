@@ -36,12 +36,20 @@
 }
 
 
+/**
+ *  此方法用来设置key对应的属性是自动通知，还是手动通知
+ *
+ *  @param key 属性的key值
+ *
+ *  @return 返回NO表示此属性只能手动通知观察者，返回YES表示可以自动通知观察者
+ */
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key
 {
     if ([key isEqualToString:@"name"]) {
         return NO;
     }
-    return [super automaticallyNotifiesObserversForKey:key];
+    BOOL automation = [super automaticallyNotifiesObserversForKey:key];
+    return automation;
 }
 
 @end
