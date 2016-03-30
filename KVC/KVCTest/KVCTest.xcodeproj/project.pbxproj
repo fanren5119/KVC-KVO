@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B6E56D01C7C536600FF00F2 /* CALayer+RuntimeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E56CF1C7C536600FF00F2 /* CALayer+RuntimeAttribute.m */; };
 		9B74A1DD1C75A0C10087AB25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B74A1DC1C75A0C10087AB25 /* main.m */; };
 		9B74A1E01C75A0C10087AB25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B74A1DF1C75A0C10087AB25 /* AppDelegate.m */; };
 		9B74A1E31C75A0C10087AB25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B74A1E21C75A0C10087AB25 /* ViewController.m */; };
@@ -16,7 +15,8 @@
 		9B74A1EB1C75A0C10087AB25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B74A1E91C75A0C10087AB25 /* LaunchScreen.storyboard */; };
 		9B74A1F61C75A0C10087AB25 /* KVCTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B74A1F51C75A0C10087AB25 /* KVCTestTests.m */; };
 		9B74A2011C75A0C10087AB25 /* KVCTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B74A2001C75A0C10087AB25 /* KVCTestUITests.m */; };
-		9B74A2101C75A0D30087AB25 /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B74A20F1C75A0D30087AB25 /* People.m */; };
+		9BBEDCB01CABAD370011139C /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBEDCAF1CABAD370011139C /* People.m */; };
+		9BBEDCB31CABADF70011139C /* Wife.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBEDCB21CABADF70011139C /* Wife.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9B6E56CE1C7C536600FF00F2 /* CALayer+RuntimeAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+RuntimeAttribute.h"; sourceTree = "<group>"; };
-		9B6E56CF1C7C536600FF00F2 /* CALayer+RuntimeAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+RuntimeAttribute.m"; sourceTree = "<group>"; };
 		9B74A1D81C75A0C10087AB25 /* KVCTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVCTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B74A1DC1C75A0C10087AB25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B74A1DE1C75A0C10087AB25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,8 +53,10 @@
 		9B74A1FC1C75A0C10087AB25 /* KVCTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVCTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B74A2001C75A0C10087AB25 /* KVCTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVCTestUITests.m; sourceTree = "<group>"; };
 		9B74A2021C75A0C10087AB25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B74A20E1C75A0D30087AB25 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
-		9B74A20F1C75A0D30087AB25 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
+		9BBEDCAE1CABAD370011139C /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
+		9BBEDCAF1CABAD370011139C /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
+		9BBEDCB11CABADF70011139C /* Wife.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wife.h; sourceTree = "<group>"; };
+		9BBEDCB21CABADF70011139C /* Wife.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wife.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +111,10 @@
 				9B74A1DF1C75A0C10087AB25 /* AppDelegate.m */,
 				9B74A1E11C75A0C10087AB25 /* ViewController.h */,
 				9B74A1E21C75A0C10087AB25 /* ViewController.m */,
-				9B6E56CE1C7C536600FF00F2 /* CALayer+RuntimeAttribute.h */,
-				9B6E56CF1C7C536600FF00F2 /* CALayer+RuntimeAttribute.m */,
-				9B74A20E1C75A0D30087AB25 /* People.h */,
-				9B74A20F1C75A0D30087AB25 /* People.m */,
+				9BBEDCAE1CABAD370011139C /* People.h */,
+				9BBEDCAF1CABAD370011139C /* People.m */,
+				9BBEDCB11CABADF70011139C /* Wife.h */,
+				9BBEDCB21CABADF70011139C /* Wife.m */,
 				9B74A1E41C75A0C10087AB25 /* Main.storyboard */,
 				9B74A1E71C75A0C10087AB25 /* Assets.xcassets */,
 				9B74A1E91C75A0C10087AB25 /* LaunchScreen.storyboard */,
@@ -280,9 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B74A2101C75A0D30087AB25 /* People.m in Sources */,
+				9BBEDCB31CABADF70011139C /* Wife.m in Sources */,
+				9BBEDCB01CABAD370011139C /* People.m in Sources */,
 				9B74A1E31C75A0C10087AB25 /* ViewController.m in Sources */,
-				9B6E56D01C7C536600FF00F2 /* CALayer+RuntimeAttribute.m in Sources */,
 				9B74A1E01C75A0C10087AB25 /* AppDelegate.m in Sources */,
 				9B74A1DD1C75A0C10087AB25 /* main.m in Sources */,
 			);
