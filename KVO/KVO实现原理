@@ -1,0 +1,29 @@
+1.简介
+  全程key-value Observing(键值观察)
+  提供了一种当其他对象改变时，通知当前对象的机制，
+  在MVC模式中，KVO很适合model和controller之间的通讯
+
+2.实现原理
+  当某个类的对象第一次被观察的时候，系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类的人格被观察属性的setter方法，在
+被重写的setter方法中实现真正的通知机制
+  同时派生类还重写了class方法以“欺骗”外部代用者（它就是起初的那个类），然后系统将这个对象的isa指针指向这个新诞生的派生类，因此这个对象
+就成为该派生类的对象，因而在该对象上对setter方法的调用就会调用重写的setter方法，从而激活键值通知机制；
+  同时，派生类还重写了dealloc方法，去释放资源。
+  
+3.实现方式
+  ①重写class方法
+    会根据原类（People）生成一个派生类（NSKVONotifying_Person）
+  ②重写set方法
+    在set方法中，调用
+    - (void)willChangeValueForKey:(NSString *)key;
+    - (void)didChangeValueForKey:(NSString *)key;
+    而didChangeValueForKey会发起通知。
+  
+4.使用KVO
+  ①使用KVC（setValue:forKey）
+    会自动调用will/didChangeValueForKey
+  ②使用访问器方法（set方法）
+    set方法中吊起will/didChangeValueForKey
+  ③显示调用will/didChangeValueForKey
+    在显示调用的时候，可以重写automatiallyNoficationObserversForKey:方法，如果此方法返回NO，表示此属性必须要手动发起通知；如果返回YES，
+  此属性可以手动或者自动发起通知。
