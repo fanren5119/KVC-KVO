@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:KVO--&#x81ea;&#x5b9a;&#x4e49;/KVO--&#x81ea;&#x5b9a;&#x4e49;.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:KVO--&#x6570;&#x7ec4;/KVO--&#x6570;&#x7ec4;.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:KVO--&#x5bf9;&#x8c61;/KVO--&#x5bf9;&#x8c61;.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:KVO/KVO.xcodeproj">
+   </FileRef>
+</Workspace>
